@@ -1,0 +1,39 @@
+name: Update Frecuencias
+
+on:
+  schedule:
+    - cron: '0 8 * * 1'  # Cada lunes a las 8:00 UTC
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch frecuencias from API
+        run: |
+          TOKEN=$(curl -s -X POST http://orbitalflyers.com:3639/authentication \
+            -H "Content-Type: application/json" \
+            -d "{\"strategy\":\"local\",\"email\":\"${{ secrets.API_EMAIL }}\",\"password\":\"${{ secrets.API_PASSWORD }}\"}" \
+            | python3 -c "import sys,json; print(json.load(sys.stdin)['accessToken'])")
+
+          curl -s "http://orbitalflyers.com:3639/frecuencias?\$limit=1000" \
+            -H "Authorization: bearer $TOKEN" \
+            | python3 -c "
+          import sys, json
+          body = json.load(sys.stdin)
+          data = body['data'] if isinstance(body, dict) else body
+          print(json.dumps(data, ensure_ascii=False, indent=2))
+          " > public/xamarin/aerodromosServicio/creaXMLfrecuencias.php
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/xamarin/aerodromosServicio/creaXMLfrecuencias.php
+          git diff --staged --quiet || git commit -m "chore: update frecuencias data"
+          git push
