@@ -23,8 +23,10 @@ import s6 from "@/assets/app/s6.png";
 import s7 from "@/assets/app/s7.png";
 import s8 from "@/assets/app/s8.png";
 
-const APP_URL =
+const APP_STORE_URL =
   "https://apps.apple.com/us/app/aerodromos-chile/id463238844";
+const PLAY_STORE_URL =
+  "https://play.google.com/store/apps/details?id=com.asvm.aerodromos&hl=es_CL";
 
 const screenshots = [
   { src: s1, label: "Pantalla principal" },
@@ -72,7 +74,7 @@ const features = [
 
 const AppStoreBadge = ({ className = "" }: { className?: string }) => (
   <a
-    href={APP_URL}
+    href={APP_STORE_URL}
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Descargar en el App Store"
@@ -86,6 +88,38 @@ const AppStoreBadge = ({ className = "" }: { className?: string }) => (
       <div className="text-xl font-semibold">App Store</div>
     </div>
   </a>
+);
+
+const PlayStoreBadge = ({ className = "" }: { className?: string }) => (
+  <a
+    href={PLAY_STORE_URL}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Disponible en Google Play"
+    className={`inline-flex items-center gap-3 rounded-2xl bg-foreground px-5 py-3 text-background shadow-elegant transition-smooth hover:scale-[1.03] hover:shadow-glow ${className}`}
+  >
+    <svg viewBox="0 0 512 512" className="h-7 w-7" aria-hidden="true">
+      <path fill="#34A853" d="M325.3 234.3 104.6 13l280.8 161-60.1 60.3z"/>
+      <path fill="#FBBC04" d="m104.6 499 220.7-220.6-60.3-60.3L104.6 13z" opacity=".0"/>
+      <path fill="#EA4335" d="M104.6 13v486l220.7-220.6L104.6 13z"/>
+      <path fill="#4285F4" d="m104.6 13 280.8 161 60.1 60.3L104.6 499V13z" opacity="0"/>
+      <path fill="#FBBC04" d="M385.4 174 104.6 13v486l280.8-161 60.1-60.3z" opacity="0"/>
+      <path fill="#34A853" d="M104.6 13v486l220.7-220.6L104.6 13z" opacity="0"/>
+      <path fill="#FBBC04" d="m325.3 278.4 60.1 59.6 76.8-44c20.5-11.7 20.5-37.3 0-49L385.4 200l-60.1 78.4z"/>
+      <path fill="#4285F4" d="M104.6 499 325.3 278.4l-60.3-60.1L104.6 13c-7.4 4-12.4 11.5-12.4 21.4v443.2c0 9.9 5 17.4 12.4 21.4z"/>
+    </svg>
+    <div className="text-left leading-tight">
+      <div className="text-[10px] uppercase tracking-wider opacity-80">Disponible en</div>
+      <div className="text-xl font-semibold">Google Play</div>
+    </div>
+  </a>
+);
+
+const StoreBadges = ({ className = "" }: { className?: string }) => (
+  <div className={`flex flex-wrap items-center gap-3 ${className}`}>
+    <AppStoreBadge />
+    <PlayStoreBadge />
+  </div>
 );
 
 const Index = () => {
@@ -112,7 +146,7 @@ const Index = () => {
             <a href="#contact" className="transition-smooth hover:text-foreground">Contacto</a>
           </nav>
           <Button asChild variant="default" className="bg-gradient-runway text-primary-foreground hover:opacity-90">
-            <a href={APP_URL} target="_blank" rel="noopener noreferrer">
+            <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
               Descargar <ChevronRight className="ml-1 h-4 w-4" />
             </a>
           </Button>
@@ -136,7 +170,7 @@ const Index = () => {
               Aeródromos, pistas, frecuencias, METAR, NOTAM y mucho más.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <AppStoreBadge />
+              <StoreBadges />
               <a
                 href="http://www.plandevuelo.info/"
                 target="_blank"
@@ -287,7 +321,7 @@ const Index = () => {
               </a>.
             </p>
             <div className="mt-8">
-              <AppStoreBadge />
+              <StoreBadges />
             </div>
           </div>
 
@@ -316,11 +350,11 @@ const Index = () => {
               Listo para despegar.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-              Descarga Aeródromos Chile gratis en el App Store y lleva la información de
-              cada aeródromo del país en tu bolsillo.
+              Descarga Aeródromos Chile gratis en el App Store o Google Play y lleva la
+              información de cada aeródromo del país en tu bolsillo.
             </p>
             <div className="mt-8 flex justify-center">
-              <AppStoreBadge />
+              <StoreBadges />
             </div>
           </div>
         </div>
