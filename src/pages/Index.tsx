@@ -170,7 +170,7 @@ const Index = () => {
               Aeródromos, pistas, frecuencias, METAR, NOTAM y mucho más.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <AppStoreBadge />
+              <StoreBadges />
               <a
                 href="http://www.plandevuelo.info/"
                 target="_blank"
@@ -321,7 +321,7 @@ const Index = () => {
               </a>.
             </p>
             <div className="mt-8">
-              <AppStoreBadge />
+              <StoreBadges />
             </div>
           </div>
 
@@ -350,11 +350,11 @@ const Index = () => {
               Listo para despegar.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-              Descarga Aeródromos Chile gratis en el App Store y lleva la información de
-              cada aeródromo del país en tu bolsillo.
+              Descarga Aeródromos Chile gratis en el App Store o Google Play y lleva la
+              información de cada aeródromo del país en tu bolsillo.
             </p>
             <div className="mt-8 flex justify-center">
-              <AppStoreBadge />
+              <StoreBadges />
             </div>
           </div>
         </div>
