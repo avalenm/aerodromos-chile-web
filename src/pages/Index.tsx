@@ -146,7 +146,7 @@ const Index = () => {
             <a href="#contact" className="transition-smooth hover:text-foreground">Contacto</a>
           </nav>
           <Button asChild variant="default" className="bg-gradient-runway text-primary-foreground hover:opacity-90">
-            <a href={APP_URL} target="_blank" rel="noopener noreferrer">
+            <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
               Descargar <ChevronRight className="ml-1 h-4 w-4" />
             </a>
           </Button>
