@@ -280,7 +280,7 @@ const Index = () => {
             </h2>
           </div>
 
-          <div className="mt-14 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-6 scrollbar-thin md:grid md:grid-cols-4 md:overflow-visible">
+          <div className="mt-14 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-6 scrollbar-thin md:grid md:grid-cols-3 md:overflow-visible lg:grid-cols-5">
             {screenshots.map((s, i) => (
               <figure
                 key={i}
