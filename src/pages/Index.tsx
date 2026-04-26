@@ -22,6 +22,8 @@ import s5 from "@/assets/app/s5.png";
 import s6 from "@/assets/app/s6.png";
 import s7 from "@/assets/app/s7.png";
 import s8 from "@/assets/app/s8.png";
+import s9 from "@/assets/app/s9.png";
+import s10 from "@/assets/app/s10.png";
 
 // Store URLs
 const APP_STORE_URL =
@@ -30,14 +32,16 @@ const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=com.asvm.aerodromos&hl=es_CL";
 
 const screenshots = [
-  { src: s1, label: "Pantalla principal" },
-  { src: s2, label: "Aeródromos cercanos" },
-  { src: s3, label: "Detalle del aeródromo" },
-  { src: s4, label: "Información de pistas" },
-  { src: s5, label: "Vista en mapa" },
-  { src: s6, label: "Compás magnético" },
-  { src: s7, label: "METAR / NOTAM" },
-  { src: s8, label: "Búsqueda" },
+  { src: s1, label: "Listado de aeródromos" },
+  { src: s2, label: "Detalle del aeródromo" },
+  { src: s3, label: "Menú principal" },
+  { src: s4, label: "GAMET por FIR" },
+  { src: s5, label: "Cámaras de aeródromos" },
+  { src: s6, label: "Imágenes en vivo" },
+  { src: s7, label: "Compás y rumbo" },
+  { src: s8, label: "METAR / TAF" },
+  { src: s9, label: "NOTAMs vigentes" },
+  { src: s10, label: "Videos de aeródromos" },
 ];
 
 const features = [
